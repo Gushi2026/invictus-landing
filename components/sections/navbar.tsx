@@ -29,8 +29,20 @@ export function Navbar() {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    if (open) {
+      document.body.style.overflow = "hidden";
+      document.body.style.position = "fixed";
+      document.body.style.width = "100%";
+    } else {
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
+    };
   }, [open]);
 
   return (
@@ -92,7 +104,7 @@ export function Navbar() {
             aria-label={open ? "Cerrar menú" : "Abrir menú"}
             aria-expanded={open}
             aria-controls="mobile-nav"
-            className="relative z-[60] inline-flex h-10 w-10 items-center justify-center rounded-full text-invictus-white transition-colors hover:bg-white/10 md:hidden"
+            className="relative z-[110] inline-flex h-10 w-10 items-center justify-center rounded-full text-invictus-white transition-colors hover:bg-white/10 md:hidden"
             onClick={() => setOpen((v) => !v)}
           >
             {open ? <X size={20} /> : <Menu size={20} />}
@@ -105,7 +117,7 @@ export function Navbar() {
         id="mobile-nav"
         aria-hidden={!open}
         className={cn(
-          "fixed inset-0 z-[55] origin-top bg-invictus-black transition-[transform,opacity] duration-300 md:hidden",
+          "fixed inset-0 z-[100] origin-top bg-invictus-black transition-[transform,opacity] duration-300 md:hidden",
           open
             ? "scale-y-100 opacity-100"
             : "pointer-events-none scale-y-95 opacity-0",
