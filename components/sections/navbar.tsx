@@ -28,6 +28,11 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [open]);
+
   return (
     <motion.header
       initial={{ y: -64, opacity: 0 }}
@@ -87,7 +92,7 @@ export function Navbar() {
             aria-label={open ? "Cerrar menú" : "Abrir menú"}
             aria-expanded={open}
             aria-controls="mobile-nav"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full text-invictus-white transition-colors hover:bg-white/10 md:hidden"
+            className="relative z-[60] inline-flex h-10 w-10 items-center justify-center rounded-full text-invictus-white transition-colors hover:bg-white/10 md:hidden"
             onClick={() => setOpen((v) => !v)}
           >
             {open ? <X size={20} /> : <Menu size={20} />}
@@ -100,7 +105,7 @@ export function Navbar() {
         id="mobile-nav"
         aria-hidden={!open}
         className={cn(
-          "fixed inset-x-0 top-16 bottom-0 origin-top bg-invictus-black transition-[transform,opacity] duration-300 md:hidden",
+          "fixed inset-0 z-[55] origin-top bg-invictus-black transition-[transform,opacity] duration-300 md:hidden",
           open
             ? "scale-y-100 opacity-100"
             : "pointer-events-none scale-y-95 opacity-0",
@@ -108,6 +113,7 @@ export function Navbar() {
         style={{
           transitionTimingFunction: "var(--ease-invictus)",
           paddingBottom: "env(safe-area-inset-bottom, 0)",
+          paddingTop: "calc(4rem + env(safe-area-inset-top, 0))",
         }}
       >
         <ul className="flex flex-col gap-1 px-6 py-10">
