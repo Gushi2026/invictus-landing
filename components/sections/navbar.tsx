@@ -28,22 +28,6 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    if (open) {
-      document.body.style.overflow = "hidden";
-      document.body.style.position = "fixed";
-      document.body.style.width = "100%";
-    } else {
-      document.body.style.overflow = "";
-      document.body.style.position = "";
-      document.body.style.width = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-      document.body.style.position = "";
-      document.body.style.width = "";
-    };
-  }, [open]);
 
   return (
     <motion.header
@@ -113,48 +97,41 @@ export function Navbar() {
       </nav>
 
       {/* Mobile overlay */}
-      <div
-        id="mobile-nav"
-        aria-hidden={!open}
-        className={cn(
-          "fixed inset-0 z-[100] origin-top bg-invictus-black transition-[transform,opacity] duration-300 md:hidden",
-          open
-            ? "scale-y-100 opacity-100"
-            : "pointer-events-none scale-y-95 opacity-0",
-        )}
-        style={{
-          transitionTimingFunction: "var(--ease-invictus)",
-          paddingBottom: "env(safe-area-inset-bottom, 0)",
-          paddingTop: "calc(4rem + env(safe-area-inset-top, 0))",
-        }}
-      >
-        <ul className="flex flex-col gap-1 px-6 py-10">
-          {NAV_ITEMS.map((item) => (
-            <li key={item.href}>
-              <Link
-                href={item.href}
-                tabIndex={open ? 0 : -1}
+      {open && (
+        <div
+          id="mobile-nav"
+          className="fixed inset-0 z-[100] bg-invictus-black md:hidden"
+          style={{
+            paddingTop: "calc(4rem + env(safe-area-inset-top, 0))",
+            paddingBottom: "env(safe-area-inset-bottom, 0)",
+          }}
+        >
+          <ul className="flex flex-col gap-1 px-6 py-10">
+            {NAV_ITEMS.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  className="block border-b border-white/5 py-5 font-display text-3xl tracking-[-0.005em] text-invictus-white"
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+            <li className="pt-8">
+              <a
+                href={whatsappLink({ kind: "trial" })}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full rounded-full bg-invictus-red px-6 py-4 text-center text-base font-medium text-invictus-white"
                 onClick={() => setOpen(false)}
-                className="block border-b border-white/5 py-5 font-display text-3xl tracking-[-0.005em] text-invictus-white"
               >
-                {item.label}
-              </Link>
+                Vení una vez
+              </a>
             </li>
-          ))}
-          <li className="pt-8">
-            <a
-              href={whatsappLink({ kind: "trial" })}
-              target="_blank"
-              rel="noopener noreferrer"
-              tabIndex={open ? 0 : -1}
-              className="block w-full rounded-full bg-invictus-red px-6 py-4 text-center text-base font-medium text-invictus-white"
-              onClick={() => setOpen(false)}
-            >
-              Vení una vez
-            </a>
-          </li>
-        </ul>
-      </div>
+          </ul>
+        </div>
+      )}
     </motion.header>
   );
 }
