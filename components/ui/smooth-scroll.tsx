@@ -22,18 +22,16 @@ export function SmoothScroll() {
       const { ScrollTrigger } = await import("gsap/ScrollTrigger");
       gsap.registerPlugin(ScrollTrigger);
 
+      // Evita que los cambios de altura del URL bar de iOS Safari
+      // fuercen un recálculo de ScrollTrigger en cada scroll
+      ScrollTrigger.config({ ignoreMobileResize: true });
+
       const lenis = new Lenis({
-        // Duration en segundos para alcanzar el target — más alto = más inercia
         duration: 1.4,
-        // Easing martial: easeOutQuart — empieza con peso, snap final
         easing: (t: number) => 1 - Math.pow(1 - t, 4),
-        // Lerp suave (qué tan rápido cierra la distancia con el target)
         lerp: 0.08,
-        // Smooth wheel (rueda + trackpad)
         smoothWheel: true,
-        // Wheel multiplier — 1 = normal
         wheelMultiplier: 1,
-        // Touch (mobile) usa nativo, más responsive
         touchMultiplier: 1.5,
       });
 
@@ -46,7 +44,16 @@ export function SmoothScroll() {
       gsap.ticker.add(tickerCb);
       gsap.ticker.lagSmoothing(0);
 
+      // Recalcular después de que fuentes e imágenes carguen
+      const onLoad = () => ScrollTrigger.refresh();
+      if (document.readyState === "complete") {
+        ScrollTrigger.refresh();
+      } else {
+        window.addEventListener("load", onLoad);
+      }
+
       cleanup = () => {
+        window.removeEventListener("load", onLoad);
         gsap.ticker.remove(tickerCb);
         lenis.destroy();
       };

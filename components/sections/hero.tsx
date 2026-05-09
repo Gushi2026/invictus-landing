@@ -7,10 +7,12 @@ import { ArrowRight } from "lucide-react";
 import { whatsappLink } from "@/lib/whatsapp";
 import { MagneticButton } from "@/components/ui/magnetic-button";
 import { TextReveal } from "@/components/ui/text-reveal";
+import { useReducedMotion } from "@/components/hooks/use-reduced-motion";
 
 const ease = [0.2, 0.7, 0.1, 1] as const;
 
 export function Hero() {
+  const prefersReduced = useReducedMotion();
   const sectionRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -70,29 +72,20 @@ export function Hero() {
       id="top"
       className="relative isolate flex min-h-[100svh] items-end overflow-x-clip bg-invictus-black"
     >
-      {/* Video bg — autoplay loop, poster pre-cargado para LCP rápido */}
+      {/* Video bg — no se oculta en reduced-motion, solo no hace autoplay */}
       <video
         ref={videoRef}
         aria-hidden="true"
-        autoPlay
+        autoPlay={!prefersReduced}
         muted
-        loop
+        loop={!prefersReduced}
         playsInline
-        preload="metadata"
+        preload="auto"
         poster="/videos/hero-poster.jpg"
-        className="absolute inset-0 h-full w-full object-cover object-center will-change-transform motion-reduce:hidden"
+        className="absolute inset-0 h-full w-full object-cover object-center will-change-transform"
       >
         <source src="/videos/hero.mp4" type="video/mp4" />
       </video>
-
-      {/* Fallback estático para reduced-motion */}
-      <picture className="hidden motion-reduce:block">
-        <img
-          src="/videos/hero-poster.jpg"
-          alt=""
-          className="absolute inset-0 h-full w-full object-cover object-center"
-        />
-      </picture>
 
       {/* Overlays cinematográficos — vignette + gradiente bottom para legibilidad de texto */}
       <div
