@@ -1,26 +1,292 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
+
+/* ============================================================
+   INVICTUS · Brand tokens
+   Negro profundo · off-white · rojo del logo
+   ============================================================ */
 
 @theme inline {
+  /* shadcn palette → mapeada a Invictus (dark by default) */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Invictus brand tokens (uso directo: bg-invictus-red, text-invictus-white...) */
+  --color-invictus-black: #0a0a0a;
+  --color-invictus-white: #f5f5f4;
+  --color-invictus-red: #e10600;
+  --color-invictus-red-deep: #b30500;
+  --color-invictus-gray-900: #141414;
+  --color-invictus-gray-800: #1f1f1f;
+  --color-invictus-gray-700: #2a2a2a;
+  --color-invictus-gray-500: #6b6b6b;
+  --color-invictus-gray-300: #a8a8a8;
+  --color-invictus-gray-100: #d9d9d9;
+
+  /* Tipografía */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-anton), "Inter", sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, "Geist Mono", monospace;
+
+  /* Display escala extendida (Fabrica-grade) */
+  --text-hero: clamp(3rem, 11vw, 11.5rem);
+  --text-display: clamp(2.5rem, 7.5vw, 8rem);
+  --text-headline: clamp(2rem, 5vw, 5rem);
+
+  /* Easing del lenguaje de motion */
+  --ease-invictus: cubic-bezier(0.2, 0.7, 0.1, 1);
+
+  /* Containers */
+  --container-xl: 1280px;
+  --container-2xl: 1520px;
+
+  /* Spacing custom (granularidad Fabrica) */
+  --spacing-card: 26px;
+  --spacing-section: 144px;
+  --spacing-section-sm: 96px;
+
+  /* Radii (Fabrica = 14px base) */
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ============================================================
+   Variables shadcn — Invictus dark-first
+   ============================================================ */
+
+:root {
+  --radius: 0.875rem;
+
+  /* Modo claro (no usado por defecto, fallback) */
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: #e10600;
+  --primary-foreground: #f5f5f4;
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: #e10600;
+}
+
+.dark {
+  /* Modo principal de la marca */
+  --background: #0a0a0a;
+  --foreground: #f5f5f4;
+  --card: #141414;
+  --card-foreground: #f5f5f4;
+  --popover: #141414;
+  --popover-foreground: #f5f5f4;
+  --primary: #e10600;
+  --primary-foreground: #f5f5f4;
+  --secondary: #1f1f1f;
+  --secondary-foreground: #f5f5f4;
+  --muted: #1f1f1f;
+  --muted-foreground: #a8a8a8;
+  --accent: #2a2a2a;
+  --accent-foreground: #f5f5f4;
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: #e10600;
+}
+
+/* ============================================================
+   Base
+   ============================================================ */
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    @apply font-sans bg-invictus-black text-invictus-white;
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    /* iOS bounce sin pestañeo, scroll suave nativo */
+    -webkit-tap-highlight-color: transparent;
+    overscroll-behavior-y: none;
+  }
+
+  body {
+    @apply bg-invictus-black text-invictus-white;
+  }
+
+  /* Tap targets accesibles en mobile (≥ 44×44 según WCAG / Apple HIG) */
+  button,
+  a[role="button"],
+  [role="tab"] {
+    min-height: 44px;
+  }
+
+  /* Disabled hover-only effects en touch devices (sin mouse) */
+  @media (hover: none) {
+    .group:hover .group-hover\:opacity-100 {
+      opacity: var(--tw-opacity, 1);
+    }
+  }
+
+  /* Selección con accent rojo */
+  ::selection {
+    background-color: var(--color-invictus-red);
+    color: var(--color-invictus-white);
+  }
+
+  /* Reduced motion = sin animaciones decorativas */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ============================================================
+   Display utility — INVICTUS wordmark feel
+   ============================================================ */
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
+
+/* ============================================================
+   Animaciones globales
+   ============================================================ */
+
+@keyframes grain-shift {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-5%, -10%); }
+  20% { transform: translate(-15%, 5%); }
+  30% { transform: translate(7%, -25%); }
+  40% { transform: translate(-5%, 25%); }
+  50% { transform: translate(-15%, 10%); }
+  60% { transform: translate(15%, 0); }
+  70% { transform: translate(0, 15%); }
+  80% { transform: translate(3%, 35%); }
+  90% { transform: translate(-10%, 10%); }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes marquee-reverse {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: marquee-reverse 26s linear infinite;
+}
+
+/* ============================================================
+   A11Y · Focus visible global (WCAG 2.4.7)
+   Tailwind reset mata outline; lo restauramos solo via keyboard.
+   ============================================================ */
+
+*:focus {
+  outline: none;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--color-invictus-red);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Skip-to-content link — invisible hasta tab focus */
+.skip-link {
+  position: fixed;
+  top: -100px;
+  left: 1rem;
+  z-index: 100;
+  padding: 0.75rem 1.25rem;
+  background: var(--color-invictus-red);
+  color: var(--color-invictus-white);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  top: 1rem;
+}
+
+/* ============================================================
+   A11Y · prefers-reduced-motion safety net global (WCAG 2.3.3)
+   Override de TODAS las animaciones/transiciones cuando user prefiere.
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-marquee,
+  .animate-marquee-reverse {
+    animation: none !important;
+  }
 }

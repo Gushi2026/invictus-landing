@@ -1,0 +1,67 @@
+[
+  {
+    "slug": "boxeo",
+    "nombre": "Boxeo",
+    "tagline": "Aprendés a pegar. Pero primero a esquivar.",
+    "descripcion": "Guardia, desplazamiento y distancia desde el día uno. Los golpes vienen después. Pads, sombra y sparring controlado solo cuando el cuerpo lo decide.",
+    "intencion": ["empezar", "competir"],
+    "infantil": false
+  },
+  {
+    "slug": "kick-boxing",
+    "nombre": "Kick Boxing",
+    "tagline": "Manos, patadas, ritmo. Sin atajos.",
+    "descripcion": "El striking completo, sin clinch. Combinaciones, defensa y rondas que suben de a poco. Hay turno avanzado cuando el cuerpo te pide más.",
+    "intencion": ["empezar", "competir"],
+    "infantil": false
+  },
+  {
+    "slug": "muay-thai",
+    "nombre": "Muay Thai",
+    "tagline": "El arte de las ocho extremidades.",
+    "descripcion": "Codos, rodillas, clinch y patadas con tibia. Tradición tailandesa adaptada para entrenar parejo, sin atajos. El striking más completo del mundo.",
+    "intencion": ["empezar", "competir"],
+    "infantil": false
+  },
+  {
+    "slug": "mma",
+    "nombre": "MMA",
+    "tagline": "Striking, lucha, suelo. Todo en un mismo lugar.",
+    "descripcion": "No es una clase suelta: es un plan periodizado. Mezclamos boxeo, muay thai, lucha y BJJ con foco en transiciones reales. Para los que quieren entender la pelea entera.",
+    "intencion": ["competir"],
+    "infantil": false
+  },
+  {
+    "slug": "mma-infantil",
+    "nombre": "Introducción a las MMA Infantil",
+    "tagline": "Disciplina, juego y técnica.",
+    "descripcion": "Para chicos que quieren probar artes marciales en un ambiente controlado. Coordinación, técnica básica y respeto. Sin contacto fuerte. Lo que se entrena de chico se nota toda la vida.",
+    "intencion": ["niños"],
+    "infantil": true
+  },
+  {
+    "slug": "lucha",
+    "nombre": "Lucha",
+    "tagline": "Quien controla el suelo controla la pelea.",
+    "descripcion": "Lucha olímpica y libre aplicada. Derribos, clinch, defensa de takedowns. Base fundamental para cualquier deporte de combate completo.",
+    "intencion": ["empezar", "competir", "sin-contacto"],
+    "infantil": false
+  },
+  {
+    "slug": "bjj",
+    "nombre": "BJJ · Jiu Jitsu",
+    "tagline": "El arte del control. Y de no rendirte.",
+    "descripcion": "Entrenás con alumnos de todos los niveles. Empezás cuando estés listo, rolás cuando quieras. Posiciones, sumisiones y un sistema real de progresión por cinturones que se ganan, no se compran.",
+    "intencion": ["empezar", "competir", "sin-contacto"],
+    "infantil": false
+  },
+  {
+    "slug": "taekwondo",
+    "nombre": "Taekwondo",
+    "tagline": "Velocidad, precisión, distancia.",
+    "descripcion": "Disciplina coreana centrada en patadas técnicas y trabajo de timing. Solo en sede Diagonal 74. Arte marcial olímpico con tradición clara.",
+    "intencion": ["empezar", "competir", "sin-contacto"],
+    "infantil": false,
+    "soloEn": "diagonal-74"
+  }
+]

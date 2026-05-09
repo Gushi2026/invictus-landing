@@ -1,0 +1,28 @@
+[
+  {
+    "slug": "3-y-41",
+    "nombre": "Sede 3 y 41",
+    "direccion": "Calle 3 y 41",
+    "ciudad": "La Plata",
+    "provincia": "Buenos Aires",
+    "pais": "Argentina",
+    "coords": { "lat": -34.9044974, "lng": -57.9542528 },
+    "mapsUrl": "https://maps.app.goo.gl/97qXjvbCjPCgabBy6",
+    "fotoEntrada": null,
+    "transporte": null,
+    "estacionamiento": null
+  },
+  {
+    "slug": "diagonal-74",
+    "nombre": "Sede Diagonal 74",
+    "direccion": "Diagonal 74 N° 2755, e/ 22 y 23",
+    "ciudad": "La Plata",
+    "provincia": "Buenos Aires",
+    "pais": "Argentina",
+    "coords": { "lat": -34.9385122, "lng": -57.9537667 },
+    "mapsUrl": "https://maps.app.goo.gl/WPgqNnJYSiqJt2xHA",
+    "fotoEntrada": null,
+    "transporte": null,
+    "estacionamiento": null
+  }
+]

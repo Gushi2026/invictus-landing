@@ -1,0 +1,25 @@
+{
+  "stats": [
+    { "valor": "+8", "label": "Años entrenando competidores" },
+    { "valor": "+9", "label": "Coaches activos" },
+    { "valor": "+30", "label": "Clases por semana" },
+    { "valor": "2", "label": "Sedes en La Plata" }
+  ],
+  "highlights": [
+    {
+      "titulo": "Ares FC",
+      "descripcion": "Cinturones que se entrenaron en el gym.",
+      "year": null
+    },
+    {
+      "titulo": "UFC",
+      "descripcion": "Compitiendo al más alto nivel.",
+      "year": null
+    },
+    {
+      "titulo": "Federaciones nacionales",
+      "descripcion": "Boxeo, BJJ, Lucha, Muay Thai.",
+      "year": null
+    }
+  ]
+}

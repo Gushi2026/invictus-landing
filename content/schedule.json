@@ -1,0 +1,51 @@
+[
+  { "sede": "3-y-41", "disciplina": "boxeo", "dias": ["lun", "mie", "vie"], "hora": "09:00" },
+  { "sede": "3-y-41", "disciplina": "boxeo", "dias": ["lun", "mie", "vie"], "hora": "20:00" },
+  { "sede": "3-y-41", "disciplina": "boxeo", "dias": ["mar", "jue"], "hora": "14:00" },
+
+  { "sede": "3-y-41", "disciplina": "kick-boxing", "dias": ["lun", "mie", "vie"], "hora": "17:00", "nivel": "avanzados" },
+  { "sede": "3-y-41", "disciplina": "kick-boxing", "dias": ["lun", "mie", "vie"], "hora": "19:00" },
+  { "sede": "3-y-41", "disciplina": "kick-boxing", "dias": ["mar", "jue"], "hora": "10:00" },
+  { "sede": "3-y-41", "disciplina": "kick-boxing", "dias": ["mar", "jue"], "hora": "20:00" },
+  { "sede": "3-y-41", "disciplina": "kick-boxing", "dias": ["mar", "jue"], "hora": "21:00" },
+
+  { "sede": "3-y-41", "disciplina": "muay-thai", "dias": ["lun", "mie", "vie"], "hora": "10:00" },
+  { "sede": "3-y-41", "disciplina": "muay-thai", "dias": ["lun", "mie", "vie"], "hora": "14:00" },
+  { "sede": "3-y-41", "disciplina": "muay-thai", "dias": ["mar", "jue"], "hora": "19:00" },
+
+  { "sede": "3-y-41", "disciplina": "mma", "dias": ["lun", "mie", "vie"], "hora": "11:00" },
+  { "sede": "3-y-41", "disciplina": "mma", "dias": ["lun", "mie", "vie"], "hora": "16:00" },
+  { "sede": "3-y-41", "disciplina": "mma", "dias": ["lun", "mie", "vie"], "hora": "21:00" },
+
+  { "sede": "3-y-41", "disciplina": "mma-infantil", "dias": ["mar", "jue"], "hora": "18:00" },
+
+  { "sede": "3-y-41", "disciplina": "bjj", "dias": ["lun", "mie", "vie"], "hora": "14:30" },
+
+  { "sede": "3-y-41", "disciplina": "lucha", "dias": ["mar", "jue"], "hora": "15:00" },
+  { "sede": "3-y-41", "disciplina": "lucha", "dias": ["mar", "jue"], "hora": "16:30" },
+
+  { "sede": "diagonal-74", "disciplina": "boxeo", "dias": ["lun", "mie", "vie"], "hora": "09:00" },
+  { "sede": "diagonal-74", "disciplina": "boxeo", "dias": ["lun", "mie", "vie"], "hora": "16:00" },
+  { "sede": "diagonal-74", "disciplina": "boxeo", "dias": ["lun", "mie", "vie"], "hora": "21:00" },
+
+  { "sede": "diagonal-74", "disciplina": "kick-boxing", "dias": ["lun", "mie", "vie"], "hora": "10:30" },
+  { "sede": "diagonal-74", "disciplina": "kick-boxing", "dias": ["lun", "mie", "vie"], "hora": "20:00" },
+
+  { "sede": "diagonal-74", "disciplina": "muay-thai", "dias": ["lun", "mie", "vie"], "hora": "09:00" },
+  { "sede": "diagonal-74", "disciplina": "muay-thai", "dias": ["lun", "mie", "vie"], "hora": "19:00" },
+  { "sede": "diagonal-74", "disciplina": "muay-thai", "dias": ["mar", "jue"], "hora": "18:00" },
+
+  { "sede": "diagonal-74", "disciplina": "mma", "dias": ["lun", "mie", "vie"], "hora": "11:00" },
+  { "sede": "diagonal-74", "disciplina": "mma", "dias": ["lun", "mie", "vie"], "hora": "15:00" },
+  { "sede": "diagonal-74", "disciplina": "mma", "dias": ["lun", "mie", "vie"], "hora": "18:00" },
+  { "sede": "diagonal-74", "disciplina": "mma", "dias": ["lun", "mie", "vie"], "hora": "21:00" },
+  { "sede": "diagonal-74", "disciplina": "mma", "dias": ["mar", "jue"], "hora": "18:00" },
+
+  { "sede": "diagonal-74", "disciplina": "bjj", "dias": ["mar", "jue"], "hora": "11:00" },
+  { "sede": "diagonal-74", "disciplina": "bjj", "dias": ["mar", "jue"], "hora": "19:00" },
+
+  { "sede": "diagonal-74", "disciplina": "lucha", "dias": ["lun", "mie", "vie"], "hora": "10:00" },
+  { "sede": "diagonal-74", "disciplina": "lucha", "dias": ["lun", "mie", "vie"], "hora": "12:00" },
+
+  { "sede": "diagonal-74", "disciplina": "taekwondo", "dias": ["mar", "jue"], "hora": "20:00" }
+]
