@@ -11,6 +11,7 @@ import {
 } from "@/lib/schedule";
 import type { Dia } from "@/lib/constants";
 import { cn } from "@/lib/utils";
+import { useReducedMotion } from "@/components/hooks/use-reduced-motion";
 import { TimetableCell } from "./timetable-cell";
 
 type TimetableGridProps = {
@@ -36,6 +37,7 @@ export function TimetableGrid({
   activeFilter,
   onCellClick,
 }: TimetableGridProps) {
+  const prefersReduced = useReducedMotion();
   const [now, setNow] = useState<Date | null>(null);
 
   useEffect(() => {
@@ -96,10 +98,10 @@ export function TimetableGrid({
       {/* Body de la grid + now-line */}
       <div className="relative border-t border-white/10 pt-2">
         {/* Now-line absolute */}
-        {nowLine && (
+        {nowLine && !prefersReduced && (
           <div
             aria-hidden
-            className="pointer-events-none absolute left-[64px] right-0 z-10 motion-reduce:hidden"
+            className="pointer-events-none absolute left-[64px] right-0 z-10"
             style={{ top: `${nowLine.pct}%` }}
           >
             <div className="relative flex items-center">

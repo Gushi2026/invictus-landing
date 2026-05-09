@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { whatsappLink } from "@/lib/whatsapp";
@@ -13,6 +14,8 @@ const NAV_ITEMS = [
   { href: "#horarios", label: "Horarios" },
   { href: "#sedes", label: "Sedes" },
 ];
+
+const ease = [0.2, 0.7, 0.1, 1] as const;
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -26,7 +29,10 @@ export function Navbar() {
   }, []);
 
   return (
-    <header
+    <motion.header
+      initial={{ y: -64, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease, delay: 0.1 }}
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-[background,border,backdrop-filter] duration-300",
         scrolled
@@ -38,7 +44,8 @@ export function Navbar() {
         paddingTop: "env(safe-area-inset-top, 0)",
       }}
     >
-      <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:h-20 sm:px-8"
+      <nav
+        className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:h-20 sm:px-8"
         style={{
           paddingLeft: "max(1.25rem, env(safe-area-inset-left))",
           paddingRight: "max(1.25rem, env(safe-area-inset-right))",
@@ -130,6 +137,6 @@ export function Navbar() {
           </li>
         </ul>
       </div>
-    </header>
+    </motion.header>
   );
 }
