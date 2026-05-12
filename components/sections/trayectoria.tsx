@@ -26,7 +26,7 @@ export function Trayectoria() {
         <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <SectionHeading
-              eyebrow="06 · Trayectoria"
+              eyebrow="07 · Trayectoria"
               headingClassName="font-display mt-4 max-w-3xl text-balance text-[clamp(2.25rem,5vw,4.5rem)] leading-[1] tracking-[-0.005em] pb-2"
             >
               Lo que se construyó

@@ -7,21 +7,26 @@ import { Coaches } from "@/components/sections/coaches";
 import { Showreel } from "@/components/sections/showreel";
 import { Horarios } from "@/components/sections/horarios";
 import { Sedes } from "@/components/sections/sedes";
+import { Precios } from "@/components/sections/precios";
 import { Trayectoria } from "@/components/sections/trayectoria";
 import { CtaFinal } from "@/components/sections/cta-final";
 import { Footer } from "@/components/sections/footer";
 import { MarqueeBand } from "@/components/ui/marquee-band";
 import { SectionDivider } from "@/components/ui/section-divider";
+import { WhatsAppFab } from "@/components/ui/whatsapp-fab";
+import { IntroVeil } from "@/components/ui/intro-veil";
 
 export default function Home() {
   return (
     <>
+      <IntroVeil />
       <Navbar />
       <main>
         <Hero />
 
         <MarqueeBand
           variant="minimal"
+          introDelay={2.1}
           items={Array.from({ length: 6 }).map((_, i) => (
             <span key={i}>
               INVIC<span className="text-invictus-red">T</span>US
@@ -65,10 +70,15 @@ export default function Home() {
 
         <SectionDivider />
 
+        <Precios />
+
+        <SectionDivider />
+
         <Trayectoria />
 
         <CtaFinal />
       </main>
+      <WhatsAppFab />
       <Footer />
     </>
   );

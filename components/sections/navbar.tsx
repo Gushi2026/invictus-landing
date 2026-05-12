@@ -14,6 +14,7 @@ const NAV_ITEMS = [
   { href: "#coaches", label: "Coaches" },
   { href: "#horarios", label: "Horarios" },
   { href: "#sedes", label: "Sedes" },
+  { href: "#precios", label: "Precios" },
 ];
 
 const ease = [0.2, 0.7, 0.1, 1] as const;

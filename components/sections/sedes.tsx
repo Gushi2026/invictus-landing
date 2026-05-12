@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, MapPin } from "lucide-react";
+import { ArrowUpRight, Clock, MapPin } from "lucide-react";
 import { sedes } from "@/lib/schedule";
 import { TiltCard } from "@/components/ui/tilt-card";
 import { SectionHeading } from "@/components/ui/section-heading";
@@ -84,6 +84,18 @@ export function Sedes() {
                 <p className="text-sm text-invictus-gray-500">
                   {sede.ciudad}, {sede.provincia}
                 </p>
+
+                {sede.horario_atencion && (
+                  <div className="mt-4 flex items-start gap-2">
+                    <Clock size={14} className="mt-0.5 shrink-0 text-invictus-red" aria-hidden />
+                    <div className="flex flex-col gap-0.5 text-sm text-invictus-gray-300">
+                      <span>Lun–Vie {sede.horario_atencion.lun_vie}</span>
+                      {sede.horario_atencion.sab && (
+                        <span>Sáb {sede.horario_atencion.sab}</span>
+                      )}
+                    </div>
+                  </div>
+                )}
 
                 <div className="mt-8 flex flex-wrap gap-3">
                   <a

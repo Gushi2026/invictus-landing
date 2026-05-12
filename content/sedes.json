@@ -10,7 +10,12 @@
     "mapsUrl": "https://maps.app.goo.gl/97qXjvbCjPCgabBy6",
     "fotoEntrada": null,
     "transporte": null,
-    "estacionamiento": null
+    "estacionamiento": null,
+    "horario_atencion": {
+      "lun_vie": "07:00–22:00",
+      "sab": "08:00–14:00",
+      "dom": null
+    }
   },
   {
     "slug": "diagonal-74",
@@ -23,6 +28,11 @@
     "mapsUrl": "https://maps.app.goo.gl/WPgqNnJYSiqJt2xHA",
     "fotoEntrada": null,
     "transporte": null,
-    "estacionamiento": null
+    "estacionamiento": null,
+    "horario_atencion": {
+      "lun_vie": "07:00–22:00",
+      "sab": "08:00–14:00",
+      "dom": null
+    }
   }
 ]

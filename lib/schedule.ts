@@ -21,6 +21,12 @@ export type Disciplina = {
   soloEn?: string;
 };
 
+export type HorarioAtencion = {
+  lun_vie: string;
+  sab: string | null;
+  dom: string | null;
+};
+
 export type Sede = {
   slug: string;
   nombre: string;
@@ -30,6 +36,7 @@ export type Sede = {
   pais: string;
   coords: { lat: number; lng: number };
   mapsUrl: string;
+  horario_atencion?: HorarioAtencion;
 };
 
 export const schedule = scheduleData as ScheduleEntry[];

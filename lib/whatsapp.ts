@@ -6,7 +6,8 @@ type WhatsAppContext =
   | { kind: "schedule"; disciplina: string; sede: string; dia: string; hora: string }
   | { kind: "competitivo" }
   | { kind: "consultoria" }
-  | { kind: "shop" };
+  | { kind: "shop" }
+  | { kind: "membership" };
 
 const messages: Record<WhatsAppContext["kind"], (ctx: WhatsAppContext) => string> = {
   general: () => "Hola, quería hacer una consulta sobre las clases.",
@@ -25,6 +26,7 @@ const messages: Record<WhatsAppContext["kind"], (ctx: WhatsAppContext) => string
   consultoria: () =>
     "Hola, no estoy seguro qué disciplina probar. ¿Me ayudan a elegir?",
   shop: () => "Hola, quería preguntar por la indumentaria.",
+  membership: () => "Hola, quiero información sobre los planes de membresía.",
 };
 
 export function whatsappLink(ctx: WhatsAppContext = { kind: "general" }): string {

@@ -8,6 +8,7 @@ type MarqueeBandProps = {
   variant?: "default" | "accent" | "minimal";
   direction?: "forward" | "reverse";
   className?: string;
+  introDelay?: number;
 };
 
 const variantClasses: Record<NonNullable<MarqueeBandProps["variant"]>, string> = {
@@ -27,8 +28,9 @@ export function MarqueeBand({
   variant = "default",
   direction = "forward",
   className,
+  introDelay,
 }: MarqueeBandProps) {
-  return (
+  const band = (
     <motion.div
       role="presentation"
       aria-hidden
@@ -70,4 +72,18 @@ export function MarqueeBand({
       </div>
     </motion.div>
   );
+
+  if (introDelay !== undefined) {
+    return (
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: introDelay, duration: 0.4 }}
+      >
+        {band}
+      </motion.div>
+    );
+  }
+
+  return band;
 }

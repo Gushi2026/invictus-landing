@@ -1,0 +1,40 @@
+[
+  {
+    "id": "una-disciplina",
+    "nombre": "Una disciplina",
+    "info": "Elegís una y entrenás todas sus clases en ambas sedes.",
+    "precio": "",
+    "features": [
+      { "text": "Clases ilimitadas de 1 disciplina" },
+      { "text": "Acceso a ambas sedes" },
+      { "text": "Primera clase gratis" }
+    ],
+    "highlighted": false
+  },
+  {
+    "id": "dos-disciplinas",
+    "nombre": "Dos disciplinas",
+    "info": "Combiná lo que más te sirva. Boxeo + BJJ, MMA + Muay Thai.",
+    "precio": "",
+    "features": [
+      { "text": "Clases ilimitadas de 2 disciplinas" },
+      { "text": "Acceso a ambas sedes" },
+      { "text": "Podés cambiar de disciplinas cada mes" },
+      { "text": "Primera clase gratis" }
+    ],
+    "highlighted": true
+  },
+  {
+    "id": "completo",
+    "nombre": "Acceso completo",
+    "info": "Todas las disciplinas, todas las clases. Para los que van a fondo.",
+    "precio": "",
+    "features": [
+      { "text": "Acceso a todas las disciplinas" },
+      { "text": "Clases ilimitadas en ambas sedes" },
+      { "text": "Prioridad en el equipo competitivo" },
+      { "text": "Primera clase gratis" }
+    ],
+    "highlighted": false
+  }
+]
